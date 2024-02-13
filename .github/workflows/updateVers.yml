@@ -1,0 +1,25 @@
+name: onPR
+
+on:
+  pull_request:
+    branches:    
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+  
+      - name: Increment devBuild
+        run: |
+          mvn versions:set-property -Dproperty=devBuild -DnewVersion=\$((\$(mvn help:evaluate -Dexpression=devBuild -q -DforceStdout)+1))
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions@github.com'
+          git commit -am "Increment devBuild"
+          git push
