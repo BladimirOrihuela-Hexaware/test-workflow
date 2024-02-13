@@ -3,7 +3,7 @@ name: onPR
 on:
   push:
     branches:    
-      - master
+      - 'testing/dev'
 
 jobs:
   build:
