@@ -32,4 +32,4 @@ jobs:
         run: |
           git add .
           git commit -am "⬆️ Increment devBuild"
-          git push origin master
+          git push origin ${{ github.head_ref }}
