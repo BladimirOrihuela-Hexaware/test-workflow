@@ -18,8 +18,8 @@ public class TestMe {
 
     public static void main(String[] args) {
 
-        TestMe x = new TestMe();
-        x.printNumber();
+        TestMe y = new TestMe();
+        y.printNumber();
 
     }
 
