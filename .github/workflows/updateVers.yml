@@ -15,6 +15,9 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
+
+      - name: show current head ref
+        run: echo ${{ github.head_ref }}
   
       - name: Increment devBuild
         run: |
@@ -29,4 +32,4 @@ jobs:
         run: |
           git add .
           git commit -am "⬆️ Increment devBuild"
-          git push
+          git push origin master
