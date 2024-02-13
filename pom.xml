@@ -5,7 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
-		<devBuild>3</devBuild>
+		<qaBuild>3</qaBuild>
 	</properties>
   
 </project>
