@@ -1,9 +1,9 @@
-name: onPR
+name: Update QA Build Version
 
 on:
   push:
     branches:    
-      - 'testing/dev'
+      - 'testing/develop'
 
 jobs:
   build:
@@ -16,20 +16,17 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: show current head ref
-        run: echo ${{ github.head_ref }}
-  
-      - name: Increment devBuild
+      - name: Increment QA Build Version
         run: |
-          CURRENT_VERSION=$(mvn help:evaluate -Dexpression=devBuild -q -DforceStdout)
+          CURRENT_VERSION=$(mvn help:evaluate -Dexpression=qaBuild -q -DforceStdout)
           NEW_VERSION=$((CURRENT_VERSION + 1))
-          mvn versions:set-property -Dproperty=devBuild -DnewVersion=$NEW_VERSION -DgenerateBackupPoms=false
+          mvn versions:set-property -Dproperty=qaBuild -DnewVersion=$NEW_VERSION -DgenerateBackupPoms=false
           
       - name: Setup git user
         uses: fregante/setup-git-user@v1
 
-      - name: Commit change
+      - name: Commit Change
         run: |
           git add .
-          git commit -am "⬆️ Increment devBuild"
+          git commit -am "⬆️ Increment QA Build to $NEW_VERSION"
           git push
