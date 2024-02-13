@@ -8,4 +8,16 @@
 		<qaBuild>0</qaBuild>
 	</properties>
 
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/app.properties</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
 </project>
