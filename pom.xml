@@ -5,6 +5,7 @@
   <version>0.0.1-SNAPSHOT</version>
   
   <properties>
+    <qaBuild>0</qaBuild>
 	</properties>
   
 </project>
