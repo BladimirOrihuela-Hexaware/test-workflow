@@ -1,7 +1,7 @@
 name: onPR
 
 on:
-  pull_request:
+  push:
     branches:    
       - master
 
@@ -32,4 +32,4 @@ jobs:
         run: |
           git add .
           git commit -am "⬆️ Increment devBuild"
-          git push origin ${{ github.head_ref }}
+          git push
