@@ -1,25 +1,31 @@
+import java.io.BufferedReader;
 import java.io.InputStream;
-import java.util.Properties;
+import java.io.InputStreamReader;
 
 public class TestMe {
     
-    public void printNumber() {
+    public String printNumber() {
         try {
-            Properties appProps = new Properties();
-            InputStream input = getClass().getClassLoader().getResourceAsStream("app.properties");
-            appProps.load(input);
-            String qaBuild = appProps.getProperty("qaBuild");
-            System.out.print(qaBuild);
+            InputStream input = getClass().getResourceAsStream("/qaBuild.txt");
+            try(BufferedReader reader = new BufferedReader(new InputStreamReader(input))){
+                String line;
+                if((line = reader.readLine()) != null) {
+                    return line;
+                }else {
+                   throw new Exception("qaBuild.txt is empty"); 
+                }
+            }
         } catch (Exception e) {
-            System.out.print(e.getLocalizedMessage());
+            return "Error";
         }
     }
     
 
     public static void main(String[] args) {
 
-        TestMe y = new TestMe();
-        y.printNumber();
+        TestMe x = new TestMe();
+        System.out.println(x.printNumber());
+
 
     }
 
