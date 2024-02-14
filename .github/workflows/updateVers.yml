@@ -13,10 +13,13 @@ jobs:
 
       - name: Setup git user
         uses: fregante/setup-git-user@v1
+
+      - name: move
+        run: |
+          cd src/main/resources
      
       - name: execute file
         run: |
-          cd src/main/resources
           VERSION=$(cat qaBuild.txt)
           ((VERSION++))
           echo $VERSION > qaBuild.txt
