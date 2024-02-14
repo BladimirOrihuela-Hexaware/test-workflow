@@ -5,7 +5,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<qaBuild>3</qaBuild>
+		<qaBuild>4</qaBuild>
 	</properties>
 
 	<build>
