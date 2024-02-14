@@ -20,9 +20,9 @@ jobs:
      
       - name: execute file
         run: |
-          VERSION=$(cat qaBuild.txt)
+          VERSION=$(cat src/main/resources/qaBuild.txt)
           ((VERSION++))
-          echo $VERSION > qaBuild.txt
+          echo $VERSION > src/main/resources/qaBuild.txt
           git add .
           git commit -am "⬆️ Increment QA Build to $VERSION"
           git push
