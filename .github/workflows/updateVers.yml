@@ -3,7 +3,7 @@ name: Update QA Build Version
 on:
   push:
     branches:    
-      - 'testing/develop'
+      - 'testing/dev'
 
 jobs:
   UPDATE_QA_BUILD:
