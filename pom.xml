@@ -3,21 +3,4 @@
 	<groupId>hexaware</groupId>
 	<artifactId>dev-versioning</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-
-	<properties>
-		<qaBuild>1</qaBuild>
-	</properties>
-
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/app.properties</include>
-				</includes>
-			</resource>
-		</resources>
-	</build>
-
 </project>
