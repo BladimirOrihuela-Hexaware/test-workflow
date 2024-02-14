@@ -10,17 +10,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup git user
+        uses: fregante/setup-git-user@v1
      
       - name: execute file
         run: |
-          cd src/main/resources && chmod +x ./test.sh
-          
-      - name: Setup git user
-        uses: fregante/setup-git-user@v1
-
-      - name: commit changes
-        run: |
+          cd src/main/resources
+          VERSION=$(cat qaBuild.txt)
+          ((VERSION++))
+          echo $VERSION > qaBuild.txt
           git add .
-          git commit -am "⬆️ Increment QA Build to $NEW_VERSION"
+          git commit -am "⬆️ Increment QA Build to $VERSION"
           git push
-
