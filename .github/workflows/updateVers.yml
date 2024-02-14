@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: current file
         run: |
-          echo pwd
+          ${PWD}
       - name: execute file
         run: |
-          cd src/main/resources && ./test.sh
+          cd src/main/resources && chmod +x ./test.sh
           
       - name: Setup git user
         uses: fregante/setup-git-user@v1
